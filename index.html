@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meal Random</title>
+    <link rel="stylesheet" href="./all.css">
 </head>
 <body>
+    <div class="main">
+        <h1>今天想吃....??</h1>
+        <h2 class="type">類型</h2>
+        <label for="breakfast">早餐</label>
+        <input type="checkbox" id="breakfast" value="breakfast">
+        <label for="lunch">午餐</label>
+        <input type="checkbox" id="lunch" value="lunch">
+        <label for="noodle">麵</label>
+        <input type="checkbox" id="noodle" value="noodle">
+        <label for="rice">飯</label>
+        <input type="checkbox" id="rice" value="rice">
+        <label for="others">其他</label>
+        <input type="checkbox" id="others" value="others">
+        <div class="btn">
+            <button style="border:4px white solid;" id="button">Roll</button>
+        </div>
+        <p id="result">結果區</p>
+    </div>
+
     <script src="./main.js"></script>
 </body>
 </html>

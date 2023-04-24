@@ -1,3 +1,131 @@
+// 資料內容
+// const mealList = [
+//     {
+//         "name": "神武拉麵",
+//         "category": ["noodle","lunch"],
+//         "filter": false
+//     },
+//     {
+//         "name": "鄉鄰",
+//         "category": ["lunch"],
+//         "filter": false
+//     },
+//     {
+//         "name": "早安山丘",
+//         "category": ["breakfast"],
+//         "filter": false
+//     },
+//     {
+//         "name": "鍋燒麵",
+//         "category": ["noodle"],
+//         "filter": false
+//     },
+//     {
+//         "name": "炒飯",
+//         "category": ["rice"],
+//         "filter": false
+//     },
+//     {
+//         "name": "八方雲集",
+//         "category": ["others"],
+//         "filter": false
+//     },
+//     {
+//         "name": "火鍋",
+//         "category": ["others"],
+//         "filter": false
+//     },
+//     {
+//         "name": "韓式料理",
+//         "category": ["rice", "noodle"],
+//         "filter": false
+//     },
+//     {
+//         "name": "小飯糰大飯糰",
+//         "category": ["rice"],
+//         "filter": false
+//     },
+//     {
+//         "name": "後校門滷肉飯",
+//         "category": ["rice", "noodle"],
+//         "filter": false
+//     },
+//     {
+//         "name": "陳昭",
+//         "category": ["lunch", "rice", "noodle"],
+//         "filter": false
+//     },
+//     {
+//         "name": "吳家鴨香飯",
+//         "category": ["rice", "noodle"],
+//         "filter": false
+//     }
+// ]
+
+// DOM 節點
+const button = document.querySelector("#button");
+const result = document.querySelector("#result");
+
+const breakfast = document.querySelector("#breakfast");
+const lunch = document.querySelector("#lunch");
+const noodle = document.querySelector("#noodle");
+const rice = document.querySelector("#rice");
+const others = document.querySelector("#others");
+
+const checkbox = [breakfast,lunch,noodle,rice,others];
+
+let sourceData = [];
+
+let mealList = [];
+
+// 非同步語法
+// fetch 串接API語法或是本地資料夾檔案
+fetch("meal.json")
+    .then(function(response){
+    // 從JSON格式轉回 Js 物件
+    return response.json();
+})
+    .then(function(data){
+        sourceData = [...data];
+        console.log(sourceData);
+    })
+
+    .catch(function(error){
+        // 抓資料不成功 錯誤 就會進到 catch
+        console.log(error);
+    })
+
+// filter.category
+function filter(){
+    checkbox.forEach(function(i){
+        if(i.checked){
+            sourceData.forEach(function(m){
+                if(m.category.includes(i.value)){
+                    m.filter = true;
+                }
+            })
+        }
+    })
+    mealList = mealList.filter(function(i){
+        i.filter
+    });    
+}
+
+// meal random
+function randomMeal(){
+    const random = Math.floor(Math.random() * sourceData.length); //0~12
+    console.log(sourceData);
+    result.innerHTML = sourceData[random].name;
+}
+
+// 監聽
+button.addEventListener('click',function(){
+    filter();
+    randomMeal();
+})
+
+
+
 // 物件
 // MAP Key : Value
 // 弱型別
@@ -437,24 +565,100 @@
 
 
 // 變數範圍
-const name1 = "全域"
+// const name1 = "全域"
 
-const obj = {
-    name1:"obj的name",
+// const obj = {
+//     name1:"obj的name",
   
-}
+// }
 
-function fn(){
-    const name1 = "fn的name";
-    console.log(name1);
-}
+// function fn(){
+//     const name1 = "fn的name";
+//     console.log(name1);
+// }
 
-console.log(name1);
-console.log(obj.name1);
-fn();
+// console.log(name1);
+// console.log(obj.name1);
+// fn();
 
 // function fn2(){
 //     console.log("執行fn2方法")
 // }
 
 // fn2();
+
+// const mealList = [
+//     {
+//         "name": "食在一方",
+//         "category": ["brunch"],
+//         "filter": false
+//     },
+//     {
+//         "name": "日十",
+//         "category": ["brunch"],
+//         "filter": false
+//     },
+//     {
+//         "name": "鹽行站",
+//         "category": ["buffet", "rice"],
+//         "filter": false
+//     },
+//     {
+//         "name": "鍋燒麵",
+//         "category": ["noodle"],
+//         "filter": false
+//     },
+//     {
+//         "name": "炒飯",
+//         "category": ["rice"],
+//         "filter": false
+//     },
+//     {
+//         "name": "八方雲集",
+//         "category": ["others"],
+//         "filter": false
+//     },
+//     {
+//         "name": "火鍋",
+//         "category": ["others"],
+//         "filter": false
+//     },
+//     {
+//         "name": "韓式料理",
+//         "category": ["rice", "noodle"],
+//         "filter": false
+//     },
+//     {
+//         "name": "小飯糰大飯糰",
+//         "category": ["rice"],
+//         "filter": false
+//     },
+//     {
+//         "name": "後校門滷肉飯",
+//         "category": ["rice", "noodle"],
+//         "filter": false
+//     },
+//     {
+//         "name": "魚耶",
+//         "category": ["brunch", "rice", "noodle"],
+//         "filter": false
+//     },
+//     {
+//         "name": "吳家鴨香飯",
+//         "category": ["rice", "noodle"],
+//         "filter": false
+//     }
+// ]
+
+
+// const random =Math.floor(Math.random() * mealList.length); //0~12
+
+// console.log(random);
+
+// console.log(mealList[random].name);
+
+// console.log(mealList[5].name);
+
+// mealList.forEach(function(i){
+//     console.log(i.name);
+// })

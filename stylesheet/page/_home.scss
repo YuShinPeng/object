@@ -1,0 +1,47 @@
+
+
+body{
+    background-color: #242333;
+    color:white;
+}
+
+.main{
+    width:500px;
+    height: 500px;
+    display: block;
+    margin: auto;
+    background-color: lightblue;
+    margin-top: 100px;
+    text-align: center;
+    padding-top: 20vh;
+    border-radius: 10px;
+    box-shadow: 10px 10px rgb(63, 157, 183);
+    
+    h1{
+       margin-bottom: 20px;
+    }
+    
+    .type{
+        margin-bottom: 20px;
+    }
+    
+
+    .btn{
+        display: block;
+        margin:20px 10px;
+        button{
+            border-radius: 5px;
+            width: 90%;
+            background-color:#242333;
+            color: white;
+        }
+    }
+    
+
+    p{
+        font-size: 50px;
+    }
+
+
+}
+
