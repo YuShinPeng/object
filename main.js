@@ -95,6 +95,7 @@ fetch("meal.json")
         console.log(error);
     })
 
+    
 // filter.category
 function filter(){
     checkbox.forEach(function(i){
